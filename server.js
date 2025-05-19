@@ -60,6 +60,7 @@ app.put('/usuarios/:id', async (req, res) => {
 
 })
 
+// Delete pelo id
 app.delete('/usuarios/:id', async (req, res)=>{
     await prisma.user.delete({
         where: {
