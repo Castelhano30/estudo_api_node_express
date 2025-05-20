@@ -19,8 +19,8 @@ Este projeto consiste na criação de um CRUD (Create, Read, Update e Delete) de
 model User {
   id    String  @id @default(uuid())
   name  String
-  age   Int
-  email String  @unique
+  age   String
+  email String  
 }
 ```
 
