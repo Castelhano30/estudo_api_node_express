@@ -1,27 +1,61 @@
-CRUD de Usuários com Node, Express e Prisma
+# CRUD de Usuários com Node.js, Express e Prisma
 
-Neste projeto, desenvolvi uma API para realizar operações CRUD (Create, Read, Update e Delete) de usuários utilizando Node.js, Express e Prisma. Cada usuário possui as seguintes informações:
+Este projeto consiste na criação de um CRUD (Create, Read, Update e Delete) de usuários utilizando Node.js, Express e Prisma. Cada usuário possui os seguintes atributos:
 
-Nome (name): Nome completo do usuário.
+* **Name**: Nome completo do usuário.
+* **Age**: Idade do usuário.
+* **Email**: E-mail único do usuário.
 
-Idade (age): Idade do usuário (valor numérico).
+## Tecnologias Utilizadas
 
-Email (email): Endereço de email único para cada usuário.
+* **Node.js**
+* **Express**
+* **Prisma**
 
-Tecnologias utilizadas:
 
-Node.js: Plataforma de execução de JavaScript do lado do servidor.
+## Modelo Prisma
 
-Express: Framework minimalista e robusto para criação de APIs RESTful.
+```prisma
+model User {
+  id    String  @id @default(uuid())
+  name  String
+  age   Int
+  email String  @unique
+}
+```
 
-Prisma: ORM que simplifica e otimiza a comunicação com o banco de dados.
+## Endpoints
 
-Funcionalidades:
+| Método   | Rota         | Descrição                |
+| -------- | ------------ | ------------------------ |
+| `GET`    | `/users`     | Listar todos os usuários |
+| `POST`   | `/users`     | Criar um novo usuário    |
+| `GET`    | `/users/:id` | Buscar usuário por ID    |
+| `PUT`    | `/users/:id` | Atualizar usuário por ID |
+| `DELETE` | `/users/:id` | Excluir usuário por ID   |
 
-Criação (Create): Adicionar novos usuários.
+## Como Executar
 
-Leitura (Read): Consultar todos os usuários cadastrados.
+### 1. Instale as dependências:
 
-Atualização (Update): Atualizar informações de usuários existentes.
+```bash
+npm install
+```
 
-Exclusão (Delete): Remover usuários existentes do banco de dados.
+### 2. Configure o banco com Prisma:
+
+```bash
+npx prisma migrate dev
+```
+
+### 3. Execute o servidor:
+
+```bash
+npm run dev
+```
+
+Agora seu servidor estará disponível em `http://localhost:3000`.
+
+---
+
+**Desenvolvido por Felipe Castelhano**
